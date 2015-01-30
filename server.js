@@ -5,7 +5,9 @@ var ffmpeg = require('fluent-ffmpeg');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-app.use(bodyParser.json());
+app.use(bodyParser.json(
+    { limit: "500mb" }
+));
 
 var filePathBase = '/var/project/data/';
 
