@@ -144,5 +144,5 @@ function serveStatic(response, pathname) {
     if (extensionTypes[extension] == 'video/webm')
         response.end(fs.readFileSync('.' + pathname));
     else
-        response.end(fs.readFileSync('./static' + pathname));
+        response.end(fs.readFileSync(pathname));
 }
