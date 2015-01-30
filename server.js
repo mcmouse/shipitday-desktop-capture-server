@@ -70,8 +70,9 @@ function merge(response, files) {
       })
       .on('end', function () {
         console.log('end fired');
-        clean(audioFile, videoFile);
         response.send(outputFileName);
+        clean(audioFile, videoFile);
+        console.log('Sent and cleaned.');
       })
       .output(outputFile).run();
   } else if (fs.existsSync(videoFile)) {
@@ -86,7 +87,6 @@ function merge(response, files) {
       .on('end', function () {
         console.log('end fired');
         response.send(outputFileName);
-        clean(audioFile, videoFile);
       })
       .output(outputFile).run();
   } else {
