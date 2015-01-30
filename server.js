@@ -72,7 +72,7 @@ function merge(response, files) {
               clean(audioFile, videoFile);
               response.send(outputFile);
           })
-          .output(outputFile).run();
+          .output(outputFileName).run();
     }
     else if (fs.existsSync(videoFile)) {
         ffmpeg(videoFile)
@@ -88,7 +88,7 @@ function merge(response, files) {
               clean(audioFile, videoFile);
               response.send(outputFile);
           })
-          .output(outputFile).run();
+          .output(outputFileName).run();
     }
     else {
         response.sendStatus(500);
