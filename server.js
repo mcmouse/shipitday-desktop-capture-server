@@ -17,7 +17,7 @@ app.get('/', function(request, response) {
 
 app.get('/data/:file', function(request, response) {
 	//serve something
-	var pathname = filePathBase + request.query.file;
+	var pathname = filePathBase + request.params.file;
 	serveStatic(response, pathname);
 });
 
