@@ -15,10 +15,10 @@ app.get('/', function(request, response) {
     response.send('Hello world!');
 });
 
-app.get('/data/:file', function(req, res) {
+app.get('/data/:file', function(request, response) {
 	//serve something
-	var pathname = filePathBase + req.param('file');
-	serverStatic(response, pathname);
+	var pathname = filePathBase + request.query.file;
+	serveStatic(response, pathname);
 });
 
 app.post('/upload', function(request, response) {
