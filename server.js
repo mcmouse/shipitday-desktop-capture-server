@@ -56,7 +56,7 @@ function merge(response, files) {
     var audioFile = filePathBase + files.audio.name;
   }
   var videoFile = filePathBase + files.video.name;
-  var outputFileName = files.video.name.split('.').shift() + '.mp4';
+  var outputFileName = files.video.name.split('.').shift() + '-output.webm';
   var outputFile = filePathBase + outputFileName;
   if (fs.existsSync(audioFile)) {
     ffmpeg(videoFile)
@@ -86,6 +86,7 @@ function merge(response, files) {
       })
       .on('end', function () {
         console.log('end fired');
+        clean(videoFile);
         response.send(outputFileName);
       })
       .output(outputFile).run();
