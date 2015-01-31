@@ -26,7 +26,7 @@ app.post('/upload', function (request, response) {
   upload(response, request.body);
 });
 
-var server = app.listen(3200, function () {
+var server = app.listen(3100, function () {
   var host = server.address().address;
   var port = server.address().port;
 
